@@ -21,7 +21,7 @@ jobs:
           # Create PR using GitHub CLI
           PR_URL=$(gh pr create \
             --base dev \
-            --head #${{ github.event.pull_request.head.ref }}\
+            --head #${{ github.event.pull_request.head.ref }} \
             --title "Sync changes from ${{ github.event.pull_request.title }} to dev" \
-            --body "Automated PR to merge changes from \`${{ github.event.pull_request.title }}\` into \`dev\`.
+            --body "Automated PR to merge changes from \`${{ github.event.pull_request.title }}\` into \`dev\`. \
           Triggered by PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}")
