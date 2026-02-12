@@ -24,4 +24,4 @@ jobs:
             --head #${{ github.event.pull_request.head.ref }}\
             --title "Sync changes from ${{ github.event.pull_request.title }} to dev" \
             --body "Automated PR to merge changes from \`${{ github.event.pull_request.title }}\` into \`dev\`.
-          Triggered by PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
+          Triggered by PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}")
