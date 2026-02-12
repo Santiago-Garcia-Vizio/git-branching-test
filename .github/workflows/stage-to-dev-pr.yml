@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - stage
-    types:
-      - opened
-
 jobs:
   create-pr-to-dev:
     runs-on: ubuntu-latest
