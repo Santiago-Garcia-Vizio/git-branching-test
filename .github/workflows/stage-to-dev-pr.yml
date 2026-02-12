@@ -19,4 +19,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create PR using GitHub CLI
-          gh pr create --base dev --head ${{ github.event.pull_request.head.ref }} --title "Sync changes to dev"
+          gh pr create \
+          --base dev \
+          --head ${{ github.event.pull_request.head.ref }} \
+          --title "Sync changes to dev" \
+          --body "This is pr to sync changes from stage to dev"
+          --label auto-generated
