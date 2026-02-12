@@ -24,4 +24,3 @@ jobs:
           --head ${{ github.event.pull_request.head.ref }} \
           --title "Sync changes to dev" \
           --body "This is pr to sync changes from stage to dev"
-          --label auto-generated
