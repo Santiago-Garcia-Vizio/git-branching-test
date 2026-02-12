@@ -1,0 +1,30 @@
+name: Create PR to Dev on Stage PR Merge
+
+on:
+  pull_request:
+    branches:
+      - stage
+    types:
+      - opened
+
+jobs:
+  create-pr-to-dev:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Create and Auto-Merge PR to Dev
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create PR using GitHub CLI
+          PR_URL=$(gh pr create \
+            --base dev \
+            --head #${{ github.event.pull_request.head.ref }}\
+            --title "Sync changes from ${{ github.event.pull_request.title }} to dev" \
+            --body "Automated PR to merge changes from \`${{ github.event.pull_request.title }}\` into \`dev\`.
+          Triggered by PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
