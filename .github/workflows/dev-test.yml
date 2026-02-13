@@ -1,0 +1,16 @@
+name: Test action to run on dev
+
+on:
+  pull_request:
+    branches:
+      - dev
+jobs:
+  create-pr-to-dev:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: echo something
+        run: "echo im running this"

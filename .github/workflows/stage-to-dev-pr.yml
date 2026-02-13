@@ -1,7 +1,6 @@
 name: Create PR to Dev on Stage PR Merge
 
 on:
-  workflow_dispatch:
   pull_request:
     branches:
       - stage
