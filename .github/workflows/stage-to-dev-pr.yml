@@ -24,5 +24,6 @@ jobs:
           --base dev \
           --head ${{ github.event.pull_request.head.ref }} \
           --title "Sync changes to dev" \
-          --body "This is pr to sync changes from stage to dev" 2>/dev/null) || true
+          --body "This is pr to sync changes from stage to dev" 2>&1) || true
+          echo helloo
           echo $PR
