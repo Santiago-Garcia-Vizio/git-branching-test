@@ -27,3 +27,4 @@ jobs:
           --body "This is pr to sync changes from stage to dev")
 
           echo $PR
+          echo testing haha
