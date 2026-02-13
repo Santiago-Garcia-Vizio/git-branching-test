@@ -1,19 +1,18 @@
-name: Create PR to Dev on Stage PR Merge
+name: auto label pr bots
 
 on:
   pull_request:
     branches:
       - dev
-    types:
-      - opened
 jobs:
   label-auto:
-    if: github.actor == 'github-actions[bot]'
+    if: github.event.pull_request.user.login == 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Add bot labels
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr edit ${{ github.event.pull_request }} \
-          --add-label dev-sync
+          gh pr edit ${{ github.event.pull_request.number }} \
+          --add-label dev-sync \
+          --repo ${{ github.repository }}
