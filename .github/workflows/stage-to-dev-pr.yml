@@ -7,6 +7,7 @@ on:
       - stage
 jobs:
   create-pr-to-dev:
+    if: github.base_ref == 'stage'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -25,5 +26,6 @@ jobs:
           --head ${{ github.event.pull_request.head.ref }} \
           --title "Sync changes to dev" \
           --body "This is pr to sync changes from stage to dev" 2>&1) || true
+
           echo helloo
           echo $PR
