@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - stage
+  workflow_dispatch:
 jobs:
   create-pr-to-dev:
     runs-on: ubuntu-latest
