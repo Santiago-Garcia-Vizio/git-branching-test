@@ -1,4 +1,4 @@
-name: Create PR to Dev on Stage PR Merge
+name: auto label pr bots
 
 on:
   pull_request:
