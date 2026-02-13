@@ -6,7 +6,7 @@ on:
       - dev
 jobs:
   label-auto:
-    if: github.actor == 'github-actions[bot]'
+    if: github.event.pull_request.user.login == 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Add bot labels
